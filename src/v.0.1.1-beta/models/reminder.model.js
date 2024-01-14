@@ -1,16 +1,14 @@
-import mongoose from "mongoose";
-import usersModel from "./users.model";
-import pillowsModel from "./pillows.model";
+const mongoose = require('mongoose');
 
 const ReminderSchema = mongoose.Schema;
 
 const Reminder = new ReminderSchema({
-  user: {
-    type: usersModel,
+  userId: {
+    type: Number,
     required: true,
   },
-  pillow: {
-    type: pillowsModel,
+  pillowId: {
+    type: Number,
     required: true,
   },
   format: {
@@ -31,4 +29,4 @@ const Reminder = new ReminderSchema({
   },
 });
 
-export default mongoose.model("Reminder", Reminder);
+module.exports = mongoose.model("Reminder", Reminder);

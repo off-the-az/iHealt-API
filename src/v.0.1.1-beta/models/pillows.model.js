@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const PillowSchema = mongoose.Schema;
 
@@ -19,4 +19,4 @@ const Pillow = new PillowSchema(
     }
 );
 
-export default mongoose.model('Pillow', Pillow);
+module.exports = mongoose.model('Pillow', Pillow);

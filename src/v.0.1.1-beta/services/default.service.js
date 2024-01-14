@@ -1,9 +1,9 @@
-export default class Service {
-    async read(Model: any, queue: any){
+class Service {
+    async read(Model, queue){
         let row;
-        await Model.find(queue).then((data: any) => {
+        await Model.find(queue).then((data) => {
             row = data;
-        }).catch((err: Error) => {
+        }).catch((err) => {
             console.log('====================================');
             console.log(err);
             console.log('====================================');
@@ -12,11 +12,11 @@ export default class Service {
         return row;
     }
 
-    async add(Model: any, queue: any){
+    async add(Model, queue){
         let row;
         await Model(queue).save().then(() => {
             row = queue;
-        }).catch((err: Error) => {
+        }).catch((err) => {
             console.log('====================================');
             console.log(err);
             console.log('====================================');
@@ -25,11 +25,11 @@ export default class Service {
         return row;
     }
 
-    async update(Model: any, queue: any, data: any){
+    async update(Model, queue, data){
         let row;
         await Model.updateOne(queue, data).then(() => {
             row = data;
-        }).catch((err: Error) => {
+        }).catch((err) => {
             console.log('====================================');
             console.log(err);
             console.log('====================================');
@@ -38,11 +38,11 @@ export default class Service {
         return row;
     }
 
-    async delete(Model: any, queue: any){
+    async delete(Model, queue){
         let row;
         await Model.deleteOne(queue).then(() => {
             row = queue;
-        }).catch((err: Error) => {
+        }).catch((err) => {
             console.log('====================================');
             console.log(err);
             console.log('====================================');
@@ -51,3 +51,5 @@ export default class Service {
         return row;
     }
 }
+
+module.exports = Service;

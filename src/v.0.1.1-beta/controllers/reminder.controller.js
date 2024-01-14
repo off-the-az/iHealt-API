@@ -1,30 +1,32 @@
-import Reminder from '../models/reminder.model';
-import Service from '../services/default.service';
+const Reminder = require('../models/reminder.model');
+const Service = require('../services/default.service');
 
-export default class ReminderController {
+class ReminderController {
 
     async readAll(){
         let service = new Service();
         return await service.read(Reminder, {});
     }
 
-    async readBy(queue: any){
+    async readBy(queue){
         let service = new Service();
         return await service.read(Reminder, queue);
     }
 
-    async addReminder(queue: any){
+    async addReminder(queue){
         let service = new Service();
         return await service.add(Reminder, queue);
     }
 
-    async updateReminder(queue: any, data: any){
+    async updateReminder(queue, data){
         let service = new Service();
         return await service.update(Reminder, queue, data);
     }
 
-    async deleteBy(queue: any){
+    async deleteBy(queue){
         let service = new Service();
         return await service.delete(Reminder, queue);
     }
 }
+
+module.exports = ReminderController;

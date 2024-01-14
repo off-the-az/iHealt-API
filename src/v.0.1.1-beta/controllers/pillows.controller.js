@@ -1,30 +1,32 @@
-import Pillow from '../models/pillows.model';
-import Service from '../services/default.service';
+const Pillow = require('../models/reminder.model');
+const Service = require('../services/default.service');
 
-export default class PillowController {
+class PillowController {
 
     async readAll(){
         let service = new Service();
         return await service.read(Pillow, {});
     }
 
-    async readBy(queue: any){
+    async readBy(queue){
         let service = new Service();
         return await service.read(Pillow, queue);
     }
 
-    async addPillow(queue: any){
+    async addPillow(queue){
         let service = new Service();
         return await service.add(Pillow, queue);
     }
 
-    async updatePillow(queue: any, data: any){
+    async updatePillow(queue, data){
         let service = new Service();
         return await service.update(Pillow, queue, data);
     }
 
-    async deleteBy(queue: any){
+    async deleteBy(queue){
         let service = new Service();
         return await service.delete(Pillow, queue);
     }
 }
+
+module.exports = PillowController;

@@ -3,9 +3,10 @@
   "version": "0.1.1",
   "description": "Full API module for onSell project",
   "main": "main.js",
+  "type": "commonjs",
   "scripts": {
-    "live": "ts-node main.ts",
-    "dev": "ts-node-dev main.ts",
+    "live": "node main.js",
+    "dev": "nodemon main.js",
     "test": "echo 'Test'"
   },
   "repository": {

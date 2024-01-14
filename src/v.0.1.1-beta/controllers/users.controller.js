@@ -1,30 +1,32 @@
-import User from '../models/users.model';
-import Service from '../services/default.service';
+const User = require('../models/users.model');
+const Service = require('../services/default.service');
 
-export default class UserController {
+class UserController {
 
     async readAll(){
         let service = new Service();
         return await service.read(User, {});
     }
 
-    async readBy(queue: any){
+    async readBy(queue){
         let service = new Service();
         return await service.read(User, queue);
     }
 
-    async addUser(queue: any){
+    async addUser(queue){
         let service = new Service();
         return await service.add(User, queue);
     }
 
-    async updateUser(queue: any, data: any){
+    async updateUser(queue, data){
         let service = new Service();
         return await service.update(User, queue, data);
     }
 
-    async deleteBy(queue: any){
+    async deleteBy(queue){
         let service = new Service();
         return await service.delete(User, queue);
     }
 }
+
+module.exports = UserController;
